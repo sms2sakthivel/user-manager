@@ -14,7 +14,7 @@ func NewApp() *fiber.App {
 	database.Connect()
 
 	// Step 2: Auto-migrate User schema
-	database.DB.AutoMigrate(&model.User{})
+	model.Automigrate(database.DB)
 
 	// Step 3: Initialize repository, service, and app
 	repo := &repository.GormUserRepository{DB: database.DB}
