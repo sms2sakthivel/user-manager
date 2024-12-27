@@ -39,7 +39,7 @@ func UserServiceInfo(c *fiber.Ctx) error {
 // @Tags         Users
 // @Accept       json
 // @Produce      json
-// @Success      200  {array}   model.User
+// @Success      200  {array}   model.UserResponse
 // @Failure      500  {object}  fiber.Error
 // @Router       /users [get]
 func GetAllUsers(c *fiber.Ctx, service *service.UserService) error {
@@ -58,7 +58,7 @@ func GetAllUsers(c *fiber.Ctx, service *service.UserService) error {
 // @Accept       json
 // @Produce      json
 // @Param        id   path      int  true  "User ID"
-// @Success      200  {object}  model.User
+// @Success      200  {object}  model.UserResponse
 // @Failure      404  {object}  fiber.Error
 // @Failure      500  {object}  fiber.Error
 // @Router       /users/{id} [get]
@@ -78,17 +78,18 @@ func GetUserByID(c *fiber.Ctx, service *service.UserService) error {
 // @Tags         Users
 // @Accept       json
 // @Produce      json
-// @Param        user  body      model.User  true  "User details"
-// @Success      201   {object}  model.User
+// @Param        user  body      model.UserCreateRequest  true  "User details"
+// @Success      201   {object}  model.UserResponse
 // @Failure      400   {object}  fiber.Error
 // @Failure      500   {object}  fiber.Error
 // @Router       /users [post]
 func CreateUser(c *fiber.Ctx, service *service.UserService) error {
-	var user model.User
-	if err := c.BodyParser(&user); err != nil {
+	var userReq model.UserCreateRequest
+	if err := c.BodyParser(&userReq); err != nil {
 		return fiber.NewError(fiber.StatusBadRequest, "Invalid input")
 	}
-	if err := service.CreateUser(&user); err != nil {
+	user, err := service.CreateUser(&userReq)
+	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 	return c.Status(fiber.StatusCreated).JSON(user)
@@ -102,20 +103,21 @@ func CreateUser(c *fiber.Ctx, service *service.UserService) error {
 // @Accept       json
 // @Produce      json
 // @Param        id    path      int         true  "User ID"
-// @Param        user  body      model.User  true  "Updated user details"
-// @Success      200   {object}  model.User
+// @Param        user  body      model.UserUpdateRequest  true  "Updated user details"
+// @Success      200   {object}  model.UserResponse
 // @Failure      400   {object}  fiber.Error
 // @Failure      404   {object}  fiber.Error
 // @Failure      500   {object}  fiber.Error
 // @Router       /users/{id} [put]
 func UpdateUser(c *fiber.Ctx, service *service.UserService) error {
 	id, _ := strconv.Atoi(c.Params("id"))
-	var user model.User
-	if err := c.BodyParser(&user); err != nil {
+	var userReq model.UserUpdateRequest
+	if err := c.BodyParser(&userReq); err != nil {
 		return fiber.NewError(fiber.StatusBadRequest, "Invalid input")
 	}
-	user.ID = uint(id)
-	if err := service.UpdateUser(&user); err != nil {
+	userReq.ID = uint(id)
+	user, err := service.UpdateUser(&userReq)
+	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 	return c.JSON(user)
