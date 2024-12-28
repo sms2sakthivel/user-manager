@@ -8,11 +8,11 @@ type UserCreateRequest struct {
 }
 
 type UserUpdateRequest struct {
-	ID       uint   `json:"user_id,omitempty"`
-	Name     string `json:"name,omitempty"`
-	Email    string `json:"email,omitempty"`
-	Username string `json:"user_name,omitempty"`
-	Password string `json:"password,omitempty"`
+	ID       uint   `json:"user_id"`
+	Name     string `json:"name"`
+	Email    string `json:"email"`
+	Username string `json:"user_name"`
+	Password string `json:"password"`
 }
 
 type UserResponse struct {

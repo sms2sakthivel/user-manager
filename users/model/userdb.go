@@ -1,11 +1,14 @@
 package model
 
+import "gorm.io/gorm"
+
 type User struct {
+	gorm.Model
 	ID           uint   `gorm:"primaryKey"`
-	Name         string `gorm:"size:100;not null"`
-	Email        string `gorm:"size:100;unique;not null"`
-	Username     string `gorm:"size:100;unique;not null"`
-	PasswordHash string `gorm:"size:512;unique;not null"`
+	Name         string `gorm:"not null"`
+	Email        string `gorm:"unique;not null"`
+	Username     string `gorm:"unique;not null"`
+	PasswordHash string `gorm:"not null"`
 }
 
 func (user *User) GetAPIResponseObject() *UserResponse {
