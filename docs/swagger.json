@@ -265,6 +265,9 @@
                 },
                 "user_name": {
                     "type": "string"
+                },
+                "phone_number": {
+                    "type": "string"
                 }
             }
         },
@@ -281,6 +284,9 @@
                     "type": "integer"
                 },
                 "user_name": {
+                    "type": "string"
+                },
+                "phone_number": {
                     "type": "string"
                 }
             }
@@ -301,6 +307,9 @@
                     "type": "integer"
                 },
                 "user_name": {
+                    "type": "string"
+                },
+                "phone_number": {
                     "type": "string"
                 }
             }

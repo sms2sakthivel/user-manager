@@ -9,8 +9,9 @@ type User struct {
 	Email        string `gorm:"unique;not null"`
 	Username     string `gorm:"unique;not null"`
 	PasswordHash string `gorm:"not null"`
+	PhoneNumber  string `gorm:"not null"`
 }
 
 func (user *User) GetAPIResponseObject() *UserResponse {
-	return &UserResponse{ID: user.ID, Name: user.Name, Email: user.Email, Username: user.Username}
+	return &UserResponse{ID: user.ID, Name: user.Name, Email: user.Email, Username: user.Username, PhoneNumber: user.PhoneNumber}
 }
