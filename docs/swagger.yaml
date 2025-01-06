@@ -16,6 +16,8 @@ definitions:
         type: string
       user_name:
         type: string
+      phone_number:
+        type: string
     type: object
   model.UserResponse:
     properties:
@@ -26,6 +28,8 @@ definitions:
       user_id:
         type: integer
       user_name:
+        type: string
+      phone_number:
         type: string
     type: object
   model.UserUpdateRequest:
@@ -39,6 +43,8 @@ definitions:
       user_id:
         type: integer
       user_name:
+        type: string
+      phone_number:
         type: string
     type: object
 info:

@@ -1,31 +1,34 @@
 package model
 
 type UserCreateRequest struct {
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Username string `json:"user_name"`
-	Password string `json:"password"`
+	Name        string `json:"name"`
+	Email       string `json:"email"`
+	Username    string `json:"user_name"`
+	Password    string `json:"password"`
+	PhoneNumber string `json:"phone_number"`
 }
 
 type UserUpdateRequest struct {
-	ID       uint   `json:"user_id"`
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Username string `json:"user_name"`
-	Password string `json:"password"`
+	ID          uint   `json:"user_id"`
+	Name        string `json:"name"`
+	Email       string `json:"email"`
+	Username    string `json:"user_name"`
+	Password    string `json:"password"`
+	PhoneNumber string `json:"phone_number"`
 }
 
 type UserResponse struct {
-	ID       uint   `json:"user_id"`
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Username string `json:"user_name"`
+	ID          uint   `json:"user_id"`
+	Name        string `json:"name"`
+	Email       string `json:"email"`
+	Username    string `json:"user_name"`
+	PhoneNumber string `json:"phone_number"`
 }
 
 func (ucr *UserCreateRequest) GetDBObject() *User {
-	return &User{Name: ucr.Name, Email: ucr.Email, Username: ucr.Username, PasswordHash: ucr.Password}
+	return &User{Name: ucr.Name, Email: ucr.Email, Username: ucr.Username, PasswordHash: ucr.Password, PhoneNumber: ucr.PhoneNumber}
 }
 
 func (uur *UserUpdateRequest) GetDBObject() *User {
-	return &User{ID: uur.ID, Name: uur.Name, Email: uur.Email, Username: uur.Username, PasswordHash: uur.Password}
+	return &User{ID: uur.ID, Name: uur.Name, Email: uur.Email, Username: uur.Username, PasswordHash: uur.Password, PhoneNumber: uur.PhoneNumber}
 }
