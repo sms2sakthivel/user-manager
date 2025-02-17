@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Start Prebuilt Docker Container
         run: |
-          docker run --rm --name detection_engine \
+          docker run --name detection_engine \
             -e REPO_OWNER=${{ github.repository_owner }} \
             -e REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2) \
             -e PR_NUMBER=${{ github.event.pull_request.number }} \
@@ -22,7 +22,9 @@ jobs:
         run: docker ps -a
         
       - name: Save Logs as Artifact
-        run: docker logs detection_engine > container_logs.txt
+        run: |
+          docker logs detection_engine > container_logs.txt
+          docker rm detection_engine
 
       - name: Upload Logs
         uses: actions/upload-artifact@v4
