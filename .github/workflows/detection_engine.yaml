@@ -16,6 +16,7 @@ jobs:
             -e REPO_OWNER=${{ github.repository_owner }} \
             -e REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2) \
             -e PR_NUMBER=${{ github.event.pull_request.number }} \
+            -e SERVICE_URL=http://host.docker.internal:8001
             sms2sakthivel/adapt_detection_engine:latest
 
       - name: Verify Running Container
