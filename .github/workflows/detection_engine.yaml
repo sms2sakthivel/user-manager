@@ -21,14 +21,3 @@ jobs:
 
       - name: Verify Running Container
         run: docker ps -a
-        
-      - name: Save Logs as Artifact
-        run: |
-          docker logs detection_engine > container_logs.txt
-          docker rm detection_engine
-
-      - name: Upload Logs
-        uses: actions/upload-artifact@v4
-        with:
-          name: container-logs
-          path: container_logs.txt
