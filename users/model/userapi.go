@@ -1,6 +1,7 @@
 package model
 
 type UserCreateRequest struct {
+	Name        string `json:"name"`
 	Email       string `json:"email"`
 	Username    string `json:"user_name"`
 	Password    string `json:"password"`
@@ -9,6 +10,7 @@ type UserCreateRequest struct {
 
 type UserUpdateRequest struct {
 	ID          uint   `json:"user_id"`
+	Name        string `json:"name"`
 	Email       string `json:"email"`
 	Username    string `json:"user_name"`
 	Password    string `json:"password"`
@@ -17,6 +19,7 @@ type UserUpdateRequest struct {
 
 type UserResponse struct {
 	ID          uint   `json:"user_id"`
+	Name        string `json:"name"`
 	Email       string `json:"email"`
 	Username    string `json:"user_name"`
 	PhoneNumber string `json:"phone_number"`
