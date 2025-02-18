@@ -9,6 +9,7 @@ type UserService struct {
 	Repo repository.UserRepository
 }
 
+// GetUsers Gets all the users details
 func (s *UserService) GetUsers() ([]model.UserResponse, error) {
 	var users []model.UserResponse = []model.UserResponse{}
 	dbUsers, err := s.Repo.GetAllUsers()
