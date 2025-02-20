@@ -16,10 +16,8 @@ type UserUpdateRequest struct {
 }
 
 type UserResponse struct {
-	ID       uint   `json:"user_id"`
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Username string `json:"user_name"`
+	Name  string `json:"name"`
+	Email string `json:"email"`
 }
 
 func (ucr *UserCreateRequest) GetDBObject() *User {

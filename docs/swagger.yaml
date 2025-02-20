@@ -23,10 +23,6 @@ definitions:
         type: string
       name:
         type: string
-      user_id:
-        type: integer
-      user_name:
-        type: string
     type: object
   model.UserUpdateRequest:
     properties:

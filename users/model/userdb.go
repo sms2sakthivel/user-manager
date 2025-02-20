@@ -12,5 +12,5 @@ type User struct {
 }
 
 func (user *User) GetAPIResponseObject() *UserResponse {
-	return &UserResponse{ID: user.ID, Name: user.Name, Email: user.Email, Username: user.Username}
+	return &UserResponse{Name: user.Name, Email: user.Email}
 }
