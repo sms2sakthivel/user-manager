@@ -276,6 +276,9 @@ const docTemplate = `{
                 },
                 "user_name": {
                     "type": "string"
+                },
+                "phone_number": {
+                    "type": "string"
                 }
             }
         },
@@ -292,6 +295,9 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "user_name": {
+                    "type": "string"
+                },
+                "phone_number": {
                     "type": "string"
                 }
             }
@@ -312,6 +318,9 @@ const docTemplate = `{
                     "type": "integer"
                 },
                 "user_name": {
+                    "type": "string"
+                },
+                "phone_number": {
                     "type": "string"
                 }
             }
