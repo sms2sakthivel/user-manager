@@ -1,5 +1,12 @@
 {
-    "project_name": "User Management Service",
-    "guid": "8913649E-4F41-44AC-B30C-92C43381A960",
-    "description": "Creates and Manages the entire lifecycle of the users. It also provides Authentication & Authorization services for the users."
+    "repository" : {
+        "project_name": "User Management Service",
+        "guid": "8913649E-4F41-44AC-B30C-92C43381A960",
+        "description": "Creates and Manages the entire lifecycle of the users. It also provides Authentication & Authorization services for the users."  
+    },
+    "branch" : {
+        "project_name": "User Management Service",
+        "guid": "8913649E-4F41-44AC-B30C-92C43381A960",
+        "description": "Creates and Manages the entire lifecycle of the users. It also provides Authentication & Authorization services for the users."        
+    }
 }
